@@ -1,0 +1,14 @@
+"Name","Disabled","FreeRewardOptionType","FreeRewardOption","FreeRewardOptionFrame","PaidRewardOptionType","PaidRewardOption","PaidRewardOptionCost","PerSeasonPurchaseLimit","PaidRewardOptionFrame","Tickets"
+"string","boolean","string","string","string","string","string","int","int","string","int"
+"TailChoices1",,"DEMONIC_STAR",1,"demon","NEW_MEGA_BOX",1,29,,"megabox",8
+"TailChoices2",,"ANGELIC_STAR",1,"angel","MECH_BOX",1,39,,"mech_box",8
+"TailChoices3",,"SUSHI_DROP",1,"sushi","GRAFFITI_BOX",1,29,,"boom_box",8
+"TailChoices4",,"COINS",100,"coins","NEW_MEGA_BOX",1,29,,"megabox",8
+"TailChoices5",,"POWER_POINTS",100,"power_points","MECH_BOX",1,39,,"mech_box",8
+"TailChoices6",,"RECRUIT_TOKEN",30,"recruit_tokens","GRAFFITI_BOX",1,29,,"boom_box",8
+"TailChoices7",,"COINS",500,"coins","VAULT_RESOURCE_KEY",1,79,1,"key_currency",1
+"TailChoices8",,"MECH_BOX",1,"mech_box","VAULT_BRAWLER_KEY",1,79,1,"key_brawler",1
+"TailChoices9",,"GRAFFITI_BOX",1,"boom_box","VAULT_RESOURCE_KEY",1,79,1,"key_currency",1
+"TailChoices10",,"RANDOM_SPLITTING_STAR",1,"splitting_star","RANDOM_SPLITTING_STAR",2,19,3,"splitting_star",3
+"TailChoices11",,"POWER_POINTS",200,"power_points","STARR_DROP_CONTAINER","LegendaryStar",49,1,"legendary",1
+"TailChoices12",,"RECRUIT_TOKEN",75,"recruit_tokens","STARR_DROP_CONTAINER","MythicStar",19,,"mythic",1
