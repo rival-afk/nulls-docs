@@ -1,4 +1,0 @@
-"Name","Type","Conditions","ConditionCompareAndOr","Values","Projectiles","AreaEffects","Characters","Skills","StatusEffects"
-"string","string","string","string","int","string","string","string","string","string"
-"MenderUltiFearAction","TriggerStatusTarget","MenderFacingDirectionUlti","And","","","","","","MenderUltiFear"
-"MenderUltiSlowAction","TriggerStatusTarget","","And","","","","","","MenderUltiSlow"

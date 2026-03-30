@@ -7,52 +7,52 @@ For easier maintenance of large mods, two keys are introduced: `@patches` (to mo
 Allows you to move a JSON object with table patches to a separate file. This keeps `content.json` cleaner, especially for large mods.
 
 **Syntax:**
-'''json
+```json
 {
   "@patches": "path/to/file.json"
 }
-'''
+```
 The path is relative to the root of the mod archive (ignores `@root`).
 
 **Example:**
 Instead of writing all patches inside `content.json`:
-'''json
+```json
 {
   "@title": "My mod",
   "skins": { ... },
   "skin_confs": { ... }
 }
-'''
+```
 
 Create a file `patches/skins.json`:
-'''json
+```json
 {
   "skins": { ... },
   "skin_confs": { ... }
 }
-'''
+```
 And in `content.json` specify:
-'''json
+```json
 {
   "@title": "My mod",
   "@patches": "patches/skins.json"
 }
-'''
+```
 
-**Important:** if `@patches` is used, it is **forbidden** to specify any other patches (e.g., `"skins": {...}`) in the same object — they will be ignored, and the mod won’t be signed.
+**Important:** if `@patches` is used, it is **forbidden** to specify any other patches (e.g., `"skins": {...}`) in the same object — they will be ignored, and the mod won't be signed.
 
 `@patches` can be used both in the mod root and inside a feature. Inside a feature it works the same way.
 
 ### @root
 
-Specifies a folder inside the archive that contains all the mod’s resources (textures, sounds, models). This allows you to organise files neatly, instead of dumping everything in the root.
+Specifies a folder inside the archive that contains all the mod's resources (textures, sounds, models). This allows you to organise files neatly, instead of dumping everything in the root.
 
 **Syntax:**
-'''json
+```json
 {
   "@root": "folder_name"
 }
-'''
+```
 
 **Example:**
 If your archive has a folder `my_res` with standard subfolders `sc3d`, `sfx`, etc., setting `"@root": "my_res"` makes the game look for files relative to `my_res`, not the archive root.
@@ -64,7 +64,7 @@ If your archive has a folder `my_res` with standard subfolders `sc3d`, `sfx`, et
 ### Combined Usage
 
 You can combine `@patches` and `@root`. For example:
-'''json
+```json
 {
   "@title": "Large mod",
   "@root": "assets",
@@ -76,7 +76,7 @@ You can combine `@patches` and `@root`. For example:
     }
   }
 }
-'''
+```
 
 ### Notes
 

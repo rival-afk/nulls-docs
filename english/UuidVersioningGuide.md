@@ -4,7 +4,11 @@ Proper use of UUID and version numbers helps users automatically update mods and
 
 ### UUID (Modification-Id)
 
-Every mod must have a unique identifier in UUID format. It is specified in the `META-INF/MANIFEST.MF` file under the `Modification-Id` field.
+**For signed mods (.NullsBrawlAssets):**  
+The UUID is specified in the `META-INF/MANIFEST.MF` file under the `Modification-Id` field.
+
+**For unpacked mods (folders):**  
+The UUID is determined by the folder name. Create a folder with a name matching the UUID and place the mod files inside.
 
 **Why is UUID needed?**
 - If a user installs a mod with the same UUID, the old mod is automatically removed. This simplifies updating.
@@ -17,28 +21,27 @@ Every mod must have a unique identifier in UUID format. It is specified in the `
 **Rules:**
 - UUID must be unique for each new mod.
 - When updating a mod, the UUID must stay **the same**.
-- Never use someone else’s UUID without the author’s permission.
+- Never use someone else's UUID without the author's permission.
 
 ### Versioning (@version)
 
-The mod version is specified in `content.json` with the `@version` key. The format is a string `X.Y.Z`, where X, Y, Z are non‑negative integers (e.g., `"1.0.0"`). If the field is missing, `"1.0.0"` is assumed.
+The mod version is specified in `content.json` with the `@version` key. The format is a string `X.Y.Z`, where X, Y, Z are non-negative integers (e.g., `"1.0.0"`). If the field is missing, `"1.0.0"` is assumed.
 
-**Meaning of numbers:**
+**Meaning of numbers (SemVer):**  
+The SemVer scheme is commonly used:
 - **X (major)** — major version. Changes with large, conceptual updates.
-- **Y (minor)** — minor version. Adding new features that don’t break compatibility.
+- **Y (minor)** — minor version. Adding new features that don't break compatibility.
 - **Z (patch)** — patch. Bug fixes, small adjustments.
 
-**Version update rules:**
-- When the major version (X) changes, all lower numbers (Y, Z) must be reset to zero: `1.9.5` → `2.0.0`.
-- When the minor version (Y) changes, the patch (Z) resets to zero: `1.8.5` → `1.9.0`.
-- The patch simply increments: `1.0.0` → `1.0.1`.
+**Important:** strict SemVer compliance is not required. The main rule is: the new version's numbers (from left to right) must be greater than the previous version's. For example:
+- `1.0.0` → `1.0.1` → `1.1.0` → `2.0.0`
+- `1.9.5` → `1.9.6` or `1.10.0` or `2.0.0`
 
 **Comparing versions:**
-The mod loader considers the version with a larger higher‑order number as newer. For example, `2.0.0` is newer than `1.99.99`.
+The mod loader considers the version with a larger higher-order number as newer. For example, `2.0.0` is newer than `1.99.99`.
 
-### Usage in Signing and the Library
+### Usage in the Library
 
-- For manual signing (Pro) you must specify the UUID and version (for updates) in your request.
 - In the library, mods are sorted and the user sees the latest version.
 - Automatic signing via the bot generates a UUID based on `@author` + `@title`, so it stays constant for the same mod.
 

@@ -4,10 +4,10 @@ Features allow splitting a mod into independent toggle‑able parts. The user ca
 
 ### @features
 
-In the root object of `content.json` you can add the `@features` field. Its value is an object where the key is a feature identifier (arbitrary string) and the value is an object with the feature’s settings.
+In the root object of `content.json` you can add the `@features` field. Its value is an object where the key is a feature identifier (arbitrary string) and the value is an object with the feature's settings.
 
 **Feature structure:**
-'''json
+```json
 "@features": {
   "feature_id": {
     "@name": "Feature name (required)",
@@ -19,10 +19,10 @@ In the root object of `content.json` you can add the `@features` field. Its valu
     // then you can put any table patches, just like in the mod root (e.g., "skins": {...})
   }
 }
-'''
+```
 
 **Simple feature example:**
-'''json
+```json
 {
   "@title": "Mod with features",
   "@features": {
@@ -41,7 +41,7 @@ In the root object of `content.json` you can add the `@features` field. Its valu
     }
   }
 }
-'''
+```
 
 ### @feature_groups
 
@@ -50,7 +50,7 @@ Groups combine several features into a single visual block in the mod settings. 
 - `RADIO_GROUP` — radio buttons, only one feature from the group can be selected.
 
 **Syntax:**
-'''json
+```json
 "@feature_groups": {
   "group_id": {
     "@name": "Group name (required)",
@@ -59,12 +59,12 @@ Groups combine several features into a single visual block in the mod settings. 
     "@features": ["feature_id1", "feature_id2", ...]
   }
 }
-'''
+```
 
-**Important for RADIO_GROUP:** among the listed features, no more than one should be enabled by default (otherwise the mod won’t be signed).
+**Important for RADIO_GROUP:** among the listed features, no more than one should be enabled by default (otherwise the mod won't be signed).
 
 **Full example with a group:**
-'''json
+```json
 {
   "@title": "Mode selection",
   "@features": {
@@ -86,7 +86,7 @@ Groups combine several features into a single visual block in the mod settings. 
     }
   }
 }
-'''
+```
 
 ### Mod Loading Order
 

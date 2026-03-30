@@ -30,14 +30,14 @@ Within each individual table, changes are described by a [TablePatch](#TablePatc
 
 A clear example of this object looks like this:
 
-'''json
+```json
 {
   "PiggyLevel_0_0": {
     "State": 6,
     "ShownLevelInCounter": 5
   }
 }
-'''
+```
 
 If we apply the described changes to the **club_piggy_levels.csv** table, its first row (**PiggyLevel_0_0**) will change the values in the **State** column (to 6) and
 **ShownLevelInCounter** (to 5).
@@ -46,7 +46,7 @@ The list of tables with changes in them is described by a [TablePatches](#TableP
 
 A clear example of this object for the table above looks like this:
 
-'''json
+```json
 {
    "club_piggy_levels": {
       "PiggyLevel_0_0": {
@@ -55,7 +55,7 @@ A clear example of this object for the table above looks like this:
       }
    }
 }
-'''
+```
 
 ### Changes: Value Types
 
@@ -96,7 +96,7 @@ In this table, the **FreeOffer** object consists of five rows that semantically 
 
 In JSON, this can be described as an array:
 
-'''json
+```json
 {
   "FreeOffer": {
     "Colors": [
@@ -108,7 +108,7 @@ In JSON, this can be described as an array:
     ]
   }
 }
-'''
+```
 
 </details>
 
