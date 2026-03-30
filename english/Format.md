@@ -2,6 +2,18 @@
 
 Specification version: unstable (January 10, 2026)
 
+### Specification Version (@spec)
+
+The `@spec` field indicates which version of the specification the mod was created for. Currently, the only valid value is `0` (unstable).
+
+```json
+{
+  "@spec": 0
+}
+```
+
+This field is optional. If not specified, it defaults to `0`.
+
 ### Basic Concepts
 
 **Modification** — a special package that can be loaded by the mod loader.
@@ -129,6 +141,25 @@ If a JSON change object refers to an undefined object, it will be created. Rows 
 
 If there are several such objects, their exact order in the table is not defined.
 
+### Changes: Wildcard Filtering by Boolean Values
+
+By default, you can use `*` to select all rows in a table. Additionally, you can filter rows by Boolean column values using the syntax `[ColumnName]`.
+
+**Example: patch all characters with `UseThrowingLeftWeaponBoneScaling = true`:**
+```json
+{
+  "characters": {
+    "[UseThrowingLeftWeaponBoneScaling]": {
+      "AttackSpeed": 1.5
+    }
+  }
+}
+```
+
+This will apply the changes only to rows where the specified Boolean column is `true`.
+
+**Note:** filtering by specific Integer or String values is planned for future versions.
+
 ## Reference Information: Main JSON Objects
 
 ### Modification
@@ -137,6 +168,7 @@ Object. Describes a modification.
 
 | Key                                  | Type                             | Value                                                   |
 |--------------------------------------|----------------------------------|---------------------------------------------------------|
+| @spec                                | Integer                          | Specification version (default: 0)                      |
 | @title <sup>(required)</sup>         | [IntlString](#IntlString)        | Modification title                                      |
 | @description <sup>(required)</sup>   | [IntlString](#IntlString)        | Modification description                                |
 | @author                              | [IntlString](#IntlString)        | Modification author                                     |
@@ -168,6 +200,7 @@ Object. Describes an additional mod feature.
 | @name <sup>(required)</sup>   | [IntlString](#IntlString)  | Feature name                                                                                    |
 | @description                  | [IntlString](#IntlString)  | Feature description                                                                             |
 | @enabled                      | Boolean                    | Default state (enabled: if true or key is absent; disabled: if explicitly set to false)         |
+| @priority                     | Integer                    | Feature loading order (default: 0, lower = processed earlier)                                   |
 | @conflicts                    | String[]                   | List of feature IDs that cannot be enabled simultaneously with this one                          |
 | @root                         | String                     |                                                                                                 |
 | @patches                      | String[]                   |                                                                                                 |

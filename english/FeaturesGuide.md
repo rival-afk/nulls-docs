@@ -13,6 +13,7 @@ In the root object of `content.json` you can add the `@features` field. Its valu
     "@name": "Feature name (required)",
     "@description": "Feature description (optional)",
     "@enabled": true,           // enabled by default? (defaults to true)
+    "@priority": 0,             // feature loading order (default: 0, lower = earlier)
     "@conflicts": ["other_feature"], // list of feature IDs that cannot be enabled simultaneously with this one
     "@root": "resources_folder",    // not working in older versions
     "@patches": "path/to/file.json", // external file with patches (see Guide 3)
@@ -91,7 +92,11 @@ Groups combine several features into a single visual block in the mod settings. 
 ### Mod Loading Order
 
 1. First, the root elements of `content.json` (all patches outside features) are loaded. They are always active.
-2. Then all enabled features are loaded sequentially, in the order they appear in `@features`. If a feature overrides some data, the later feature takes priority.
+2. Then all enabled features are loaded sequentially. The order is determined by:
+   - **Priority:** features with lower `@priority` values are processed first.
+   - **Feature ID:** if priorities are equal, features are sorted lexicographically by their ID.
+   
+   If a feature overrides some data, the later feature takes priority.
 
 This allows you to put common data in the root and specific data in features, without worrying about dependencies.
 
